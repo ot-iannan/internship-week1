@@ -12,7 +12,7 @@ Working on the feature-day1 branch.
 
 
 
+HEAD
 Day 1 notes
-
-Edited on main branch
+Resolved after merger conflict
 
