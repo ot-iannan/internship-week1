@@ -28,5 +28,19 @@ Learning how to use diff, log, and restore.
 
 
 
+&#x20;Day 1 Task 4 - Branches and Recovery
 
+
+
+\- Created a feature branch (feature-day1), made a commit, merged it into main.
+
+\- Created a deliberate merge conflict between main and conflict-practice branches 
+
+&#x20; by editing the same line in notes.md on both branches.
+
+\- Resolved the conflict by manually editing notes.md and committing the fix.
+
+\- Practiced git stash to temporarily save uncommitted changes, then git stash pop 
+
+&#x20; to bring them back.
 
