@@ -16,9 +16,15 @@ You can use Git without GitHub, but GitHub needs Git to work.
 
 
 
-\*Day 1 Progress
+\*Day 1 Progress (commit 1)
 
-Practicing the core Git workflow
+Practicing the core Git workflow. Using status, add, commit, clone.
+
+
+
+Commit 2
+
+Learning how to use diff, log, and restore.
 
 
 
