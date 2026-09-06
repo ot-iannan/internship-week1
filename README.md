@@ -100,3 +100,115 @@ Learning how to use diff, log, and restore.
 
 &#x20; the container must be removed first with docker rm, then the image with docker rmi.
 
+
+
+
+
+\## Day 5 - Images \& Containers
+
+
+
+\### What is an Image?
+
+A Docker image is a read-only blueprint containing everything needed to run
+
+something - code, runtime, libraries, and settings. It doesn't run by itself;
+
+it's a fixed template used to create containers.
+
+
+
+\### What is a Container?
+
+A container is a running (or stopped) instance created from an image. Many
+
+containers can be created from the same image, and each one runs independently,
+
+with its own isolated process and memory.
+
+
+
+\### Image -> Container Lifecycle
+
+
+
+\[Image on Docker Hub]
+
+&#x20;       |
+
+&#x20;  docker pull
+
+&#x20;       v
+
+\[Image downloaded locally]        <- docker images
+
+&#x20;       |
+
+&#x20;  docker run
+
+&#x20;       v
+
+\[Container created \& running]     <- docker ps
+
+&#x20;       |
+
+&#x20;  docker stop
+
+&#x20;       v
+
+\[Container stopped, still exists] <- docker ps -a
+
+&#x20;       |
+
+&#x20;  docker rm
+
+&#x20;       v
+
+\[Container deleted]
+
+
+
+
+
+(Separately: docker rmi deletes the image itself, but only once no
+
+containers still reference it.)
+
+
+
+\### Containers vs Virtual Machines
+
+
+
+| | Container | Virtual Machine |
+
+|---|---|---|
+
+| Virtualizes | Just the application layer | An entire computer, including its own OS |
+
+| Startup time | Seconds | Minutes |
+
+| Size | Lightweight (MBs) | Heavy (GBs) |
+
+| Resource use | Shares the host machine's OS kernel | Runs a full separate OS |
+
+| Isolation | Process-level | Full hardware-level |
+
+
+
+A container is like giving guests their own room in the same house (sharing
+
+the foundation and utilities), while a VM is like building each guest a
+
+separate house from scratch.
+
+
+
+\### Inspecting
+
+\- docker inspect ubuntu - showed image metadata (layers, config, creation date)
+
+\- docker inspect inspect-test - showed a running container's status, network
+
+&#x20; settings, and configuration
+
