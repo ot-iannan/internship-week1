@@ -34,13 +34,69 @@ Learning how to use diff, log, and restore.
 
 \- Created a feature branch (feature-day1), made a commit, merged it into main.
 
-\- Created a deliberate merge conflict between main and conflict-practice branches 
+\- Created a deliberate merge conflict between main and conflict-practice branches
 
 &#x20; by editing the same line in notes.md on both branches.
 
 \- Resolved the conflict by manually editing notes.md and committing the fix.
 
-\- Practiced git stash to temporarily save uncommitted changes, then git stash pop 
+\- Practiced git stash to temporarily save uncommitted changes, then git stash pop
 
 &#x20; to bring them back.
+
+
+
+
+
+\## Day 5 - Docker Setup Command Log
+
+
+
+\### Setup
+
+\- Installed Docker Desktop, enabled WSL2 with Ubuntu distro
+
+\- Added Windows user to docker-users group to resolve permission errors
+
+\- Confirmed engine running with: docker ps
+
+
+
+\### Commands practiced
+
+
+
+| Command | What it does |
+
+|---|---|
+
+| docker run hello-world | Pulled and ran the hello-world test image, confirming Docker works end-to-end |
+
+| docker images | Listed all locally downloaded images |
+
+| docker pull ubuntu | Downloaded the ubuntu image without running a container |
+
+| docker run -it ubuntu bash | Ran an interactive container, entered a live Bash shell inside it |
+
+| docker run -d --name mycontainer ubuntu sleep 300 | Ran a container in the background for 5 minutes |
+
+| docker ps | Listed currently running containers |
+
+| docker exec mycontainer echo "Hello from inside!" | Ran a command inside an already-running container |
+
+| docker logs mycontainer | Viewed a container's output history |
+
+| docker stop mycontainer | Stopped a running container |
+
+| docker rm mycontainer | Removed a stopped container |
+
+| docker rmi hello-world | Removed an image (after first removing any containers still referencing it) |
+
+
+
+\### Notes
+
+\- Images cannot be removed while a container (even stopped) still references them -
+
+&#x20; the container must be removed first with docker rm, then the image with docker rmi.
 
