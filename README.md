@@ -1,8 +1,6 @@
-\## Day 5 - Dockerfile
+Day 5 - Dockerfile
 
-
-
-\### Dockerfile used
+Dockerfile used
 
 FROM eclipse-temurin:21-jdk
 
@@ -16,13 +14,13 @@ CMD \["java", "SchoolSystem"]
 
 
 
-\### Build command
+\Build command
 
 docker build -t schoolsystem-app .
 
 
 
-\### Run command
+\ Run command
 
 docker run schoolsystem-app
 
@@ -54,3 +52,14 @@ I am Mr. Kofi, a teacher.
 
 &#x20; each time a new container starts from this image.
 
+## SOLID Principles Applied
+
+- **S**RP - Each class has one job: Person/Student/Teacher hold data and identity,
+  PayrollRunner only handles paying, SchoolSystem only wires things together.
+- **O**CP - New Payable types (e.g. a Contractor class) can be added without changing
+  any existing class.
+- **L**SP - Student and Teacher can always be used wherever a Person is expected.
+- **I**SP - pay() lives only in Payable, so Student is never forced to implement it.
+- **D**IP - PayrollRunner depends on the Payable interface, not on Teacher directly -
+  proven by testPayrollRunnerWorksWithAnyPayable, which pays an unrelated DummyPayable
+  class with no changes to PayrollRunner.
