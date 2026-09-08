@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
+        TaskManager manager = new TaskManager();
+
         if (args.length == 0){
             System.out.println("No command provided. Try: help");
             return;
@@ -18,8 +22,22 @@ public class Main {
                 return;
             }
             String description = args[1];
-            System.out.println("Task added:" + description);
+            String priority =args.length >=3 ? args[2]: "normal";
+            manager.addTask(description,priority);
+            System.out.println("Task added:" + description+ "[priority:" + priority + "]");
+
         } else if (command.equals("list")){
+            ArrayList<Task> tasks=manager.getAllTasks();
+
+            if (tasks.size() ==0){
+                System.out.println("No tasks yet.");
+            }else{
+                for (int i=0; i< tasks.size(); i++){
+                    Task task= tasks.get(i);
+                    String status= task.isDone() ? "done" : "not done";
+                    System.out.println(task.getId() + "." + task.getDescription()+ " [" + status + ", priority:" + task.getPriority() +  "]");
+                }
+            }
             System.out.println("Listing all tasks... (not connected to storage yet)");
 
         } else if (command.equals ("complete")){
@@ -27,8 +45,23 @@ public class Main {
                 System.out.println("Missing task id. Usage: complete <id>");
                 return;
             }
-            String id = args[1];
-            System.out.println("Marking task" + id+ " as complete...(not connected to storage yet");
+            int id;
+            try{
+                id=Integer.parseInt(args[1]);
+
+            }catch (NumberFormatException e){
+                System.out.println("Invalid id. Please provide a number.");
+                return;
+            }
+
+            boolean success = manager.completeTask(id);
+            if (success){
+                System.out.println("Task" + id + "marked as complete");
+
+            } else{
+                System.out.println("No task found with id"+ id);
+            }
+
 
         }
         else {
