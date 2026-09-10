@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	"weektwo/shapes"
 )
 
 func main() {
-	shapeList := []shapes.Shape{
-		shapes.Circle{Radius: 5},
-		shapes.Rectangle{Width: 10, Height: 8},
+	shapeList := []Shape{
+		Circle{Radius: 5},
+		Rectangle{Width: 10, Height: 8},
 	}
 	for i := 0; i < len(shapeList); i++ {
 		fmt.Println("Area:", shapeList[i].Area())
