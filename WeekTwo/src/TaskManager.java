@@ -26,4 +26,24 @@ public class TaskManager {
         }
         return false;
     }
+    public void loadTasks(ArrayList<Task> loadedTasks) {
+        tasks = loadedTasks;
+        for (int i = 0; i < tasks.size(); i++) {
+            if (tasks.get(i).getId() >= nextId) {
+                nextId = tasks.get(i).getId() + 1;
+            }
+        }
+    }
+
+    public void sortByPriority() {
+        for (int i = 0; i < tasks.size(); i++) {
+            for (int j = 0; j < tasks.size() - 1 - i; j++) {
+                if (tasks.get(j).getPriority().compareTo(tasks.get(j + 1).getPriority()) > 0) {
+                    Task temp = tasks.get(j);
+                    tasks.set(j, tasks.get(j + 1));
+                    tasks.set(j + 1, temp);
+                }
+            }
+        }
+    }
 }
