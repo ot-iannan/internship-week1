@@ -234,4 +234,24 @@ User (command line)
 \- Tasks persist correctly across separate runs (data isn't lost when the
 
 &#x20; program restarts)
+## Week 2, Day 4 - Refactoring Notes
+
+During Day 4, the capstone was refactored to fix gaps found while adding tests:
+
+- TaskStorage was not actually connected to Main.java, so tasks did not
+  persist between runs despite the storage code existing. This was fixed
+  by loading saved tasks on startup and saving after every add/complete.
+- A leftover placeholder message in the list command was removed.
+- Input validation was added to reject empty task descriptions.
+- A "list pending" filter and priority-based sorting were added, completing
+  the Day 3 requirements that had been missed.
+
+Package boundaries remain clear:
+- Task.java and TaskManager.java - domain logic (what a task is, how tasks behave)
+- TaskStorage.java - persistence (reading/writing tasks.txt)
+- Main.java - CLI (reading commands, printing output)
+
+Automated tests (TaskManagerTest.java) cover add, complete, invalid id,
+empty description validation, and filtering - all passing.
+
 
