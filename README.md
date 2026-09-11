@@ -391,3 +391,15 @@ on your computer using -v, so task data survives even if the container is
 deleted and a new one is created from the same image.
 
 
+## Week 2 Capstone Walkthrough
+
+1. Introduce the project (task-tracker CLI, Java + Go)
+2. Show the domain design (Task/TaskManager, TaskStorage, Main separation)
+3. Run the live workflow (add, list, filter, complete)
+4. Show persistence (new terminal, tasks still present)
+5. Run the automated test suite
+6. Show Docker with persistent volume
+7. Mention the Go version and why Java was chosen as primary
+8. Wrap up and take questions
+
+
