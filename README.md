@@ -255,3 +255,121 @@ Automated tests (TaskManagerTest.java) cover add, complete, invalid id,
 empty description validation, and filtering - all passing.
 
 
+
+
+
+\## Week 2 Capstone - Java CLI
+
+
+
+\### Installation
+
+Requires Java 21+ installed. Verify with:
+
+java -version
+
+
+
+\### Build
+
+cd WeekTwo/src
+
+javac Task.java TaskManager.java TaskStorage.java Main.java
+
+
+
+\### Usage
+
+java Main help
+
+java Main add "<description>" \[priority]
+
+java Main list
+
+java Main list pending
+
+java Main complete <id>
+
+
+
+\### Examples
+
+java Main add "Finish README" high
+
+java Main list
+
+java Main complete 1
+
+
+
+\### Troubleshooting
+
+\- "Missing description" error: you forgot to include a description after "add"
+
+\- "Invalid id" error: the complete command needs a number, not text
+
+\- Tasks not saving: make sure you are running from the WeekTwo/src folder,
+
+&#x20; since tasks.txt is created relative to where you run the command.
+
+
+
+
+
+
+
+\## Week 2 Capstone - Go CLI
+
+
+
+\### Installation
+
+Requires Go installed. Verify with:
+
+go version
+
+
+
+\### Build
+
+cd WeekTwo/src
+
+go build -o taskcli taskcli.go
+
+
+
+\### Usage
+
+./taskcli help
+
+./taskcli add "<description>"
+
+./taskcli list
+
+./taskcli list --verbose
+
+./taskcli complete <id>
+
+
+
+\### Examples
+
+./taskcli add "Buy groceries"
+
+./taskcli list
+
+./taskcli complete 1
+
+
+
+\### Troubleshooting
+
+\- "No such file or directory" when running ./taskcli: make sure you ran
+
+&#x20; "go build" first, and that you are in the same folder as the binary
+
+\- Missing description error: the add command needs text after it in quotes.
+
+
+
+
