@@ -371,5 +371,23 @@ go build -o taskcli taskcli.go
 \- Missing description error: the add command needs text after it in quotes.
 
 
+## Week 2, Day 5 - Docker (Java CLI)
+
+### Build
+cd WeekTwo/src
+docker build -t taskcli-java .
+
+### Run with persistent storage
+docker run -v "<your-path>/WeekTwo/src/data:/data" taskcli-java add "<description>" [priority]
+docker run -v "<your-path>/WeekTwo/src/data:/data" taskcli-java list
+docker run -v "<your-path>/WeekTwo/src/data:/data" taskcli-java complete <id>
+
+Replace <your-path> with the full path to your project folder.
+
+### How persistence works
+The container's /app folder holds the compiled program. A separate folder,
+/data, is where tasks.txt is saved - this folder is mounted to a real folder
+on your computer using -v, so task data survives even if the container is
+deleted and a new one is created from the same image.
 
 
