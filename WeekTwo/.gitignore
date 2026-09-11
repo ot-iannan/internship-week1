@@ -31,3 +31,6 @@ bin/
 
 *.class
 taskcli.exe
+tasks.txt
+data/
+taskcli
